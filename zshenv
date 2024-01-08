@@ -10,6 +10,9 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
+export EDITOR=vim
+export VISUAL=vim
+
 export PATH=$PATH:/home/mituk/.local/bin
 
 export LIBGL_ALWAYS_SOFTWARE=1
