@@ -27,14 +27,17 @@ alias ag='sudo apt upgrade -y'
 alias aa='sudo apt autoremove -y'
 alias ai='sudo apt install -y'
 
-source ~/.rye/env
+include () {
+  [[ -f "$1" ]] && source "$1"
+}
 
-source /opt/ros/humble/setup.zsh
+include ~/.rye/env
 
-source /usr/share/colcon_cd/function/colcon_cd.sh
+include /opt/ros/humble/setup.zsh
+include /usr/share/colcon_cd/function/colcon_cd.sh
 
-eval "$(register-python-argcomplete3 ros2)"
-eval "$(register-python-argcomplete3 colcon)"
+eval "$(register-python-argcomplete3 ros2 2> /dev/null)"
+eval "$(register-python-argcomplete3 colcon 2> /dev/null)"
 # source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
 
 overlay() {
@@ -49,4 +52,4 @@ alias wr='cd $(pwd | egrep -o ".*_ws")'
 alias cb='wr && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release'
 alias cl='wr && rm -rf build install log'
 
-source "$HOME/.cargo/env"
+include ~/.cargo/env

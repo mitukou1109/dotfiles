@@ -20,3 +20,5 @@ export LIBGL_ALWAYS_SOFTWARE=1
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 export _colcon_cd_root=/opt/ros/humble
+
+export RCUTILS_COLORIZED_OUTPUT=1
