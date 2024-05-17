@@ -40,16 +40,27 @@ eval "$(register-python-argcomplete3 ros2 2> /dev/null)"
 eval "$(register-python-argcomplete3 colcon 2> /dev/null)"
 # source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
 
-overlay() {
+function overlay() {
   if [ $# -eq 0 ]; then
-    source $(pwd | egrep -o ".*_ws")/install/local_setup.zsh
+    source $(wr)/install/setup.zsh
   else
-    source ~/$1/install/local_setup.zsh
+    source ~/$1/install/setup.zsh
   fi
 }
 
-alias wr='cd $(pwd | egrep -o ".*_ws")'
-alias cb='wr && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release'
-alias cl='wr && rm -rf build install log'
+function wr() {
+  current_dir=$(pwd)
+  workspace_dir=$(pwd)
+  while [ "$current_dir" != "/" ]; do
+    if [ -d "$current_dir/src" ]; then
+      workspace_dir="$current_dir"
+    fi
+    current_dir=$(dirname "$current_dir")
+  done
+  echo "$workspace_dir"
+}
+
+alias cb='cd $(wr) && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release'
+alias cl='cd $(wr) && rm -rf build install log'
 
 include ~/.cargo/env
