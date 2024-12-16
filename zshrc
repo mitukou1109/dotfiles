@@ -27,7 +27,12 @@ alias ag='sudo apt upgrade -y'
 alias aa='sudo apt autoremove -y'
 alias ai='sudo apt install -y'
 
-include () {
+function rm_ {
+  [[ -d "$1" ]] && rm -rI "$1" || rm -f "$1"
+}
+alias rm="rm_"
+
+function include {
   [[ -f "$1" ]] && source "$1"
 }
 
@@ -42,7 +47,7 @@ eval "`register-python-argcomplete3 ros2 2> /dev/null`"
 eval "`register-python-argcomplete3 colcon 2> /dev/null`"
 # source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
 
-function overlay() {
+function overlay {
   if [ $# -eq 0 ]; then
     source `wr`/install/local_setup.zsh
   else
@@ -51,7 +56,7 @@ function overlay() {
   eval "`register-python-argcomplete3 ros2 2> /dev/null`"
 }
 
-function wr() {
+function wr {
   current_dir=`pwd`
   workspace_dir=`pwd`
   while [ "$current_dir" != "/" ]; do
@@ -63,5 +68,6 @@ function wr() {
   echo "$workspace_dir"
 }
 
-alias cb='cd `wr` && colcon build --symlink-install --mixin release ccache'
-alias cl='cd `wr` && rm -rf build install log'
+alias cwr='cd `wr`'
+alias cb='cwr && colcon build --symlink-install --mixin release ccache'
+alias cl='cwr && rm -rf build install log'
