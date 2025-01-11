@@ -15,8 +15,6 @@ export VISUAL=vim
 
 export PATH=$PATH:/home/mituk/.local/bin
 
-export LIBGL_ALWAYS_SOFTWARE=1
-
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 export _colcon_cd_root=/opt/ros/humble
