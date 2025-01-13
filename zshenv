@@ -17,8 +17,12 @@ export PATH=$PATH:/home/mituk/.local/bin
 
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
-export _colcon_cd_root=/opt/ros/humble
+if (( $+commands[ccache] )); then
+  export CC=/usr/lib/ccache/gcc
+  export CXX=/usr/lib/ccache/g++
+  export CCACHE_DIR=$HOME/.cache/ccache/
+fi
 
-export IGN_GAZEBO_SYSTEM_PLUGIN_PATH=$IGN_GAZEBO_SYSTEM_PLUGIN_PATH:/opt/ros/humble/lib
+export _colcon_cd_root=/opt/ros/humble
 
 export RCUTILS_COLORIZED_OUTPUT=1
