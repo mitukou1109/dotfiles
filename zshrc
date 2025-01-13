@@ -63,7 +63,9 @@ alias cwr='cd $(wr)'
 alias cb='cwr && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release'
 alias cl='cwr && rm -rf build install log'
 
-eval "`uv generate-shell-completion zsh`"
+if (( $+commands[uv] )); then
+  eval "`uv generate-shell-completion zsh`"
+fi
 
 include ~/.cargo/env
 
