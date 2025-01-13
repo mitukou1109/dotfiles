@@ -38,8 +38,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'git' \
-  'python' \
-  'ssh' \
   'completion' \
   'autosuggestions' \
   'history-substring-search' \
