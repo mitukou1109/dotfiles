@@ -22,10 +22,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-rm_() {
-  [[ -d "$1" ]] && rm -rI "$1" || rm -f "$1"
-}
-
 include() {
   [[ -f "$1" ]] && source "$1"
 }
@@ -52,7 +48,6 @@ wr() {
   echo "$workspace_dir"
 }
 
-alias rm="rm_"
 
 alias au='sudo apt update'
 alias ag='sudo apt upgrade -y'
