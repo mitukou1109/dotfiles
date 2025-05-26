@@ -55,7 +55,7 @@ alias aa='sudo apt autoremove -y'
 alias ai='sudo apt install -y'
 
 alias cwr='cd $(wr)'
-alias cb='cwr && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release'
+alias cb='cwr && colcon build --symlink-install --mixin ccache release'
 alias cl='cwr && rm -rf build install log'
 
 if (( $+commands[uv] )); then
