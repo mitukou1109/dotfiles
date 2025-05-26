@@ -43,7 +43,7 @@ wr() {
     if [ -d "$current_dir/src" ]; then
       workspace_dir="$current_dir"
     fi
-    current_dir=`dirname "$current_dir"`
+    current_dir=$(dirname "$current_dir")
   done
   echo "$workspace_dir"
 }
@@ -59,7 +59,7 @@ alias cb='cwr && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=
 alias cl='cwr && rm -rf build install log'
 
 if (( $+commands[uv] )); then
-  eval "`uv generate-shell-completion zsh`"
+  eval "$(uv generate-shell-completion zsh)"
 fi
 
 include ~/.cargo/env
