@@ -13,7 +13,7 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 
-export PATH=$PATH:/home/mituk/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
@@ -26,3 +26,9 @@ fi
 export _colcon_cd_root=/opt/ros/humble
 
 export RCUTILS_COLORIZED_OUTPUT=1
+
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export CYCLONEDDS_URI=file://$HOME/cyclonedds.xml
+
+export ROS_DOMAIN_ID=25
+
