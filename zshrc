@@ -62,6 +62,9 @@ alias cb='cwr && colcon build --symlink-install --mixin ccache release'
 alias cbd='cwr && colcon build --symlink-install --mixin ccache debug'
 alias cl='cwr && rm -rf build install log'
 
+# ========================
+# Setup
+# ========================
 include ~/.cargo/env
 
 include /opt/ros/humble/setup.zsh
@@ -96,7 +99,6 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 # ========================
 # Syntax highlighting
-# Keep this near the end
 # ========================
 if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
