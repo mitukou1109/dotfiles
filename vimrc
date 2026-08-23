@@ -14,7 +14,11 @@ set softtabstop=2
 set smartindent
 set noswapfile
 set number
-syntax on
 set whichwrap=b,s,h,l,<,>,[,],~
 set mouse=a
 set clipboard=unnamedplus
+
+set term=xterm-256color
+
+syntax on
+filetype plugin on
