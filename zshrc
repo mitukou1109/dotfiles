@@ -17,7 +17,8 @@ setopt interactive_comments
 # ========================
 # Key bindings
 # ========================
-bindkey -e
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 # ========================
 # Functions
