@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 sudo apt update && sudo apt install curl -y
 export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
@@ -9,10 +9,7 @@ sudo apt update
 
 sudo apt upgrade -y
 
-sudo apt install -y ros-humble-desktop
-echo 'source /opt/ros/humble/setup.zsh' >> ~/.zshrc
-
-sudo apt install -y python3-rosdep python3-colcon-common-extensions python3-colcon-mixin
+sudo apt install -y ros-humble-desktop python3-rosdep python3-colcon-common-extensions python3-colcon-mixin
 
 sudo rosdep init
 rosdep update
