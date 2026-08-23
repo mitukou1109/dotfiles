@@ -67,8 +67,6 @@ include ~/.cargo/env
 include /opt/ros/humble/setup.zsh
 include /usr/share/colcon_cd/function/colcon_cd.sh
 
-overlay ros2bag_extensions_ws
-
 # ========================
 # Completion
 # ========================
