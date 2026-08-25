@@ -13,7 +13,7 @@ export VISUAL=vim
 # ========================
 # Environment
 # ========================
-export PATH=$PATH:/home/mituk/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 

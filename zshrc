@@ -85,6 +85,10 @@ if (( $+commands[register-python-argcomplete3] )); then
   eval "$(register-python-argcomplete3 colcon)"
 fi
 
+if (( $+commands[zellij] )); then
+  eval "$(zellij setup --generate-completion zsh)"
+fi
+
 # ========================
 # Autosuggestions
 # ========================
